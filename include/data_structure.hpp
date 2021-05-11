@@ -9,16 +9,7 @@ namespace itis {
   // Пример: объявление константы времени компиляции в заголовочном файле
 //  inline constexpr auto kStringConstant = "Hello, stranger!";
 
-  struct edge {
-
-    edge(int v1, int v2, int weight);
-
-    int v1;
-
-    int v2;
-
-    int weight;
-
+ 
 //    bool operator<(const edge& other) {
 //      return weight < other.weight;
 //    }
