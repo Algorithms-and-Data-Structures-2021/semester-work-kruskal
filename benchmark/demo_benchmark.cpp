@@ -6,7 +6,7 @@
 #include <sstream>      // stringstream
 
 // подключаем вашу структуру данных
-#include "Edge.hpp"
+#include "data_structure.hpp"
 
 using namespace std;
 using namespace itis;
