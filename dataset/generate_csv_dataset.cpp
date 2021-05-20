@@ -41,16 +41,16 @@ int main(int argc, char** argv) {
 //  }
 
   // Пример: генерация набора данных
-  auto output_stream = ofstream(path + "/insert/01/100.csv", ios::ios_base::trunc);
+  auto output_stream = ofstream(path + "/insert/10/10000.csv", ios::ios_base::trunc);
   const auto seed = chrono::system_clock::now().time_since_epoch().count();
   auto engine = mt19937(seed);  // без seed`а генератор будет выдавать одни и те же значения
   auto  ves = uniform_int_distribution(1, 10);  // равновероятное распределение генерируемых чисел
   auto  vershrandom = uniform_int_distribution(1, 10);  // равновероятное распределение генерируемых чисел
-  int rebra = 10;
+  int rebra = 10000;
   float con = 0.4;
   float noc = 0.6;
-  int vershini =  (10 * con);
-  auto versh = uniform_int_distribution(1, vershini);
+  int vershini =  (rebra * con);
+  auto versh = uniform_int_distribution(0, vershini-1);
   int colvoreber = rebra;
   int nocColvoreber = (noc * colvoreber);
   if (output_stream) {
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
     output_stream << vershini  << " ";
     output_stream << colvoreber;
     output_stream << endl;
-    for(int i = 1; i<= vershini; i++){
+    for(int i = 0; i< vershini; i++){
       output_stream << i << " " << (i + 1)<< " " << ves(engine) << endl;
     }
 
