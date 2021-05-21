@@ -1,7 +1,6 @@
 
 #include <fstream>      // ifstream
 #include <iostream>     // cout
-#include <string>       // string, stoi
 #include <string_view>  // string_view
 #include <chrono>       // high_resolution_clock, duration_cast, nanoseconds
 #include <vector>
@@ -19,12 +18,11 @@ int main() {
 
   // Tip 1: входные аргументы позволяют более гибко контролировать параметры вашей программы
   const auto path = string(kDatasetPath);
-  const auto output_path = string(kProjectPath) + "/benchmark/result/benchmark_insert_result.csv";
+  const auto output_path = string(kProjectPath) + "/benchmark/result/benchmark_result.csv";
 
   // работа с набором данных
   vector<string> folders = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
   vector<string> files = {"100", "500", "1000", "5000", "10000"};
-  //itis::FibonacciHeap heap;
   int a, b;
   for (string file : files) {         // Проходим по всем 10 .csv файлам
     for (string folder : folders) {   // Проходим по всем 10 папкам с файлами
@@ -45,11 +43,9 @@ int main() {
           g.AddWeightedEdge(mass[0], mass[1], mass[2]);
         }
         const auto time_point_before_insert = chrono::steady_clock::now();
-        //heap.insert(stoi(line));
         g.kruskal();
         const auto time_point_after_insert = chrono::steady_clock::now();
         time_diff += time_point_after_insert - time_point_before_insert;
-
       const auto time_elapsed_ns_insert = chrono::duration_cast<chrono::nanoseconds>(time_diff).count();
       cout << time_elapsed_ns_insert << endl;
 

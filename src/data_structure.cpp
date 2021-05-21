@@ -4,16 +4,7 @@
 
 namespace itis {
 
-  Graph::Graph(int V) {
-    // здесь должны быть определения методов вашей структуры
-    parent = new int[V];
 
-    for (int i = 0; i < V; i++)
-      parent[i] = i;
-
-    G.clear();
-    T.clear();
-  }
   void Graph::AddWeightedEdge(int u, int v, int w) {
     G.push_back(make_pair(w, edge(u, v)));
   }
@@ -48,7 +39,8 @@ namespace itis {
       c= c + T[i].first;
       cout << endl;
     }
-    cout << "ves"<< c<< endl;
+    cout << "Weight: "<< c<< endl;
   }
+
 
 }  // namespace itis

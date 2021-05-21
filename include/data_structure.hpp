@@ -23,13 +23,25 @@ namespace itis {
     int V;
 
    public:
-    Graph(int V);
     void AddWeightedEdge(int u, int v, int w);
     int find_set(int i);
     void union_set(int u, int v);
     void kruskal();
     void print();
+    Graph(int V) {
+      // здесь должны быть определения методов вашей структуры
+      parent = new int[V];
 
+      for (int i = 0; i < V; i++)
+        parent[i] = i;
+
+      G.clear();
+      T.clear();
+    }
+    ~Graph() {
+      delete[] parent;
+      parent = nullptr;
+    }
     // Tip 2: На начальном этапе разработки структуры данных можете определения методов задавать в
     // заголовочном файле, как только работа будет завершена, можно будет оставить здесь только объявления.
 
